@@ -15,9 +15,10 @@ jobs:
     name: Test
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node-version: [22, 24, 26]
+        os: [blacksmith-4vcpu-ubuntu-2404]
+        node-version: [24]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     permissions:
       contents: read
     steps:
@@ -40,7 +41,7 @@ jobs:
 
   code-lint:
     name: Code Lint
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     permissions:
       contents: read
     steps:
